@@ -1,8 +1,0 @@
-mods/rando_starting_loadouts/files/transmute/ragdoll/torso.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/right_thigh.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/right_arm.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/right_hand.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/left_thigh.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/left_arm.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/left_hand.png
-mods/rando_starting_loadouts/files/transmute/ragdoll/head.png

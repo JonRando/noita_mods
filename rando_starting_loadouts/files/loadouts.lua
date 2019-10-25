@@ -1,6 +1,6 @@
 loadout_list =
 {
-	
+	--[[
 	{
 		name = "Summoner TYPE",
 		folder = "summoner",
@@ -77,7 +77,10 @@ loadout_list =
 			"ELECTRICITY",
 		},
 	},
-	{	-- Rando Loadouts
+	
+	-- Rando's Loadouts
+	
+	{							
 		name = "Tinker TYPE",
 		folder = "engineer",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
@@ -93,13 +96,13 @@ loadout_list =
 		{
 			"PROTECTION_MELEE",
 		},
-	},
+	},]]--
 	{
 		name = "Shadow TYPE",
 		folder = "shadow",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff404040,
-		cape_color_edge = 0xff101010,
+		cape_color_edge = 0xff202020,
 		items = 
 		{
 			"mods/rando_starting_loadouts/files/shadow/wands/wand_1.xml",
@@ -111,44 +114,41 @@ loadout_list =
 			"INVISIBILITY",
 		},
 	},
-	{
+	--[[{
 		name = "Aqua TYPE",
-		folder = "transmute",
+		folder = "aqua",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xffad421b,
 		cape_color_edge = 0xff423213,
 		items = 
 		{
-			"mods/rando_starting_loadouts/files/transmute/wands/wand_1.xml",
-			"mods/rando_starting_loadouts/files/transmute/wands/wand_2.xml",
+			"mods/rando_starting_loadouts/files/aqua/wands/wand_1.xml",
+			"mods/rando_starting_loadouts/files/aqua/wands/wand_2.xml",
 			"data/entities/items/pickup/potion_water.xml",
 		},
 		perks =
 		{
 			"BREATH_UNDERWATER",
 		},
-	},
+	}, 
 	{
 		name = "Blood TYPE",
-		folder = "transmute",
+		folder = "blood",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xff1d12Eb,
 		cape_color_edge = 0xff021283,
 		items = 
 		{
-			"mods/rando_starting_loadouts/files/transmute/wands/wand_3.xml",
-			"mods/rando_starting_loadouts/files/transmute/wands/wand_4.xml",
-			"mods/rando_starting_loadouts/files/transmute/potion_blood.xml",
+			"mods/rando_starting_loadouts/files/blood/wands/wand_1.xml",
+			"mods/rando_starting_loadouts/files/blood/wands/wand_2.xml",
+			"mods/rando_starting_loadouts/files/blood/potion_blood.xml",
 		},
 		perks =
 		{
 			"GLOBAL_GORE",
 		},
-	},
+	},]]--
 	--[[
-	{
-		name = "Transmutation Sorcerer",
-	},
 	{
 		name = "Sludge warlock",
 	},

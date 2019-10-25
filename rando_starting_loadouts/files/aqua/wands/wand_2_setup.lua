@@ -21,18 +21,17 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
-wand.name = {"transmute_wand"}
-wand.deck_capacity = {4,4}
+wand.name = {"aqua_wand"}
+wand.deck_capacity = {2,3}
 wand.actions_per_round = 1
-wand.reload_time = {4,10}
+wand.reload_time = {35,65}
 wand.shuffle_deck_when_empty = 0
-wand.fire_rate_wait = {1,4}
-wand.spread_degrees = {0,4}
+wand.fire_rate_wait = {35,65}
+wand.spread_degrees = 0
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {20,30}
+wand.mana_charge_speed = {20,40}
 wand.mana_max = {150,200}
-wand.actions = { "LIGHT_BULLET", "AIR_BULLET" }
-wand.modifiers = { "WATER_TO_POISON" }
+wand.actions = { "CLOUD_WATER", "SEA_WATER"}
 
 local mana_max = get_random_between_range( wand.mana_max )
 local deck_capacity = get_random_between_range( wand.deck_capacity )
@@ -46,17 +45,17 @@ ComponentSetValue( ability_comp, "mana_charge_speed", get_random_between_range( 
 ComponentObjectSetValue( ability_comp, "gun_config", "actions_per_round", wand.actions_per_round )
 ComponentObjectSetValue( ability_comp, "gun_config", "deck_capacity", deck_capacity )
 ComponentObjectSetValue( ability_comp, "gun_config", "shuffle_deck_when_empty", wand.shuffle_deck_when_empty )
-ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", get_random_between_range( wand.spread_degrees ) )
+ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", wand.spread_degrees )
 ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", wand.speed_multiplier )
 
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-AddGunActionPermanent( entity_id, "WATER_TRAIL" )
+if ( Random( 1, 10 ) > 2 ) then
+	AddGunAction( entity_id, "LIGHT_BULLET_TRIGGER" )
+else
+	AddGunAction( entity_id, "HEAVY_BULLET_TRIGGER" )
+end
 
-local wand_modifier = get_random_from( wand.modifiers )
-AddGunAction( entity_id, wand_modifier )
-	
 local wand_action = get_random_from( wand.actions )
-
 AddGunAction( entity_id, wand_action )

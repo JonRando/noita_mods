@@ -124,6 +124,8 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	GamePrintImportant( "You're a " .. loadout_name .. "!", "" )
 end
 
+--ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/spellbound/modifieractions.lua")
+
 -- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
 -- For example for 'player.png' the corresponding UV source file is called 'player_uv_src.png'
 -- ModDevGenerateSpriteUVsForDirectory() must be called in init.lua file scope. It doesn't do anything outside noita_dev.exe.
@@ -133,4 +135,5 @@ ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/summoner" )
 ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/thunder" ) 
 ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/engineer" )
 ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/shadow" ) 
-ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/transmute" )
+ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/aqua" )
+ModDevGenerateSpriteUVsForDirectory( "mods/starting_loadouts/files/blood" )

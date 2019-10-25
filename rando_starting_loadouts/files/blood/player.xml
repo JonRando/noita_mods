@@ -1,5 +1,5 @@
 <Sprite 
-  filename="mods/rando_starting_loadouts/files/transmute/player.png" 
+  filename="mods/rando_starting_loadouts/files/blood/player.png" 
   hotspots_filename="data/enemies_gfx/player_hotspots.png" 
   offset_x="6" 
   offset_y="14" 

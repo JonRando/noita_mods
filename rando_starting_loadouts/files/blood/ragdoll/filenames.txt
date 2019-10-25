@@ -1,0 +1,8 @@
+mods/rando_starting_loadouts/files/blood/ragdoll/torso.png
+mods/rando_starting_loadouts/files/blood/ragdoll/right_thigh.png
+mods/rando_starting_loadouts/files/blood/ragdoll/right_arm.png
+mods/rando_starting_loadouts/files/blood/ragdoll/right_hand.png
+mods/rando_starting_loadouts/files/blood/ragdoll/left_thigh.png
+mods/rando_starting_loadouts/files/blood/ragdoll/left_arm.png
+mods/rando_starting_loadouts/files/blood/ragdoll/left_hand.png
+mods/rando_starting_loadouts/files/blood/ragdoll/head.png

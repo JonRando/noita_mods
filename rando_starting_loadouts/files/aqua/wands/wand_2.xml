@@ -31,7 +31,7 @@
 
    <Base file="data/entities/base_item.xml" >
         <ItemComponent
-            item_name="transmute_wand"
+            item_name="aqua_wand"
             remove_on_death="1"
             collect_nondefault_actions="1" >
         </ItemComponent>
@@ -40,7 +40,7 @@
    <LuaComponent 
 		execute_on_added="1"
 		remove_after_executed="1"
-		script_source_file="mods/rando_starting_loadouts/files/transmute/wands/wand_4_setup.lua"
+		script_source_file="mods/rando_starting_loadouts/files/aqua/wands/wand_2_setup.lua"
 		>
 	</LuaComponent>
 
