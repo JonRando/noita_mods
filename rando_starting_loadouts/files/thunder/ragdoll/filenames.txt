@@ -1,0 +1,8 @@
+mods/rando_starting_loadouts/files/thunder/ragdoll/torso.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/right_thigh.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/right_arm.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/right_hand.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/left_thigh.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/left_arm.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/left_hand.png
+mods/rando_starting_loadouts/files/thunder/ragdoll/head.png

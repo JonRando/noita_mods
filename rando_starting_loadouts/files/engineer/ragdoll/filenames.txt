@@ -1,0 +1,8 @@
+mods/rando_starting_loadouts/files/engineer/ragdoll/torso.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/right_thigh.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/right_arm.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/right_hand.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/left_thigh.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/left_arm.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/left_hand.png
+mods/rando_starting_loadouts/files/engineer/ragdoll/head.png
