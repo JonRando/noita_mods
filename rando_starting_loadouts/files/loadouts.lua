@@ -94,7 +94,10 @@ loadout_list =
 		},
 		perks =
 		{
-			"PROTECTION_MELEE",
+			{
+			options = { "EDIT_WANDS_EVERYWHERE", "PROTECTION_MELEE" },
+			amount = 1,
+			}
 		},
 	},
 	{

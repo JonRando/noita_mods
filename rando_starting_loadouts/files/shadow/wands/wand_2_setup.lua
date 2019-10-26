@@ -31,7 +31,7 @@ wand.spread_degrees = 0
 wand.speed_multiplier = 1
 wand.mana_charge_speed = {20,25}
 wand.mana_max = {225,275}
-wand.actions = { "NECROMANCY", "TELEPORT_PROJECTILE" }
+wand.modifiers = { "NECROMANCY", "CHARM", "BERSERK" }
 
 local mana_max = get_random_between_range( wand.mana_max )
 local deck_capacity = get_random_between_range( wand.deck_capacity )
@@ -51,13 +51,11 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-local wand_action = get_random_from( wand.actions )
+local wand_modifier = get_random_from( wand.modifiers )
+AddGunAction( entity_id, wand_modifier )
 
-if ( wand_action == "NECROMANCY" ) then
-	AddGunAction( entity_id, "LIGHT_BULLET" )
+if ( wand_modifier == "NECROMANCY" ) then
+	AddGunAction( entity_id, "AIR_BULLET" )
 else
-	AddGunAction( entity_id, "BURST_2" )
-	AddGunAction( entity_id, "DEATH_CROSS" )
+	AddGunAction( entity_id, "LIGHT_BULLET" )
 end
-
-AddGunAction( entity_id, wand_action )

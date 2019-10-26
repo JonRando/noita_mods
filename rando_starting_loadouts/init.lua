@@ -136,14 +136,40 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		end
 	end
 	
-	-- spawn two perks
-	if ( loadout_choice.perks ~= nil ) then
-		for i,perk_name in ipairs( loadout_choice.perks ) do
-			local perk_entity = perk_spawn( x, y, perk_name )
-			if ( perk_entity ~= nil ) then
-				perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
-			end
-		end	
+	-- spawn perks
+	print("Loading perks...")
+	local loadout_perks = loadout_choice.perks
+	if ( loadout_perks ~= nil ) then
+		for perk_id,loadout_perk in ipairs( loadout_perks ) do
+			if ( tostring( type( loadout_perk ) ) ~= "table" ) then
+				local perk_entity = perk_spawn( x, y, loadout_perk )
+				if ( perk_entity ~= nil ) then
+					perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
+				end
+			else
+				print("Choosing a perk..")
+				local perk_amount = loadout_perk.amount or 1
+				
+				for i=1,perk_amount do
+					local perk_option = ""
+					
+					if ( loadout_perk.options ~= nil ) then
+						local perk_options = loadout_perk.options
+						local perk_options_rnd = Random( 1, #perk_options )
+						
+						perk_option = perk_options[perk_options_rnd]
+					else
+						perk_option = loadout_perk[1]
+					end
+					local perk_entity = perk_spawn( x, y, perk_option )
+					if ( perk_entity ~= nil ) then
+						perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
+						print( "You picked up a " .. perk_option .. "!")
+					end
+				end
+			end	
+			
+		end
 	end
 	
 	GamePrintImportant( "You're a " .. loadout_name .. "!", "" )
