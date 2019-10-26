@@ -3,6 +3,8 @@ ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.l
 dofile( "data/scripts/perks/perk.lua" )
 dofile( "mods/rando_starting_loadouts/files/loadouts.lua" )
 
+local forceLoadout = ""
+
 -- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
 -- For example for 'player.png' the corresponding UV source file is called 'player_uv_src.png'
 -- ModDevGenerateSpriteUVsForDirectory() must be called in init.lua file scope. It doesn't do anything outside noita_dev.exe.
@@ -38,8 +40,18 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 	
-	local loadout_rnd = Random( 1, #loadout_list )
-	local loadout_choice = loadout_list[loadout_rnd]
+	local loadout_choice = loadout_list[1]
+	if ( forceLoadout ~= "" ) then
+		for i=1,#loadout_list do
+			if ( loadout_list[i].name == forceLoadout ) then
+				loadout_choice = loadout_list[i]
+				break
+			end
+		end
+	else	
+		local loadout_rnd = Random( 1, #loadout_list )
+		loadout_choice = loadout_list[loadout_rnd]
+	end
 	
 	local loadout_name = loadout_choice.name
 	

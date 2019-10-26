@@ -161,6 +161,22 @@ loadout_list =
 			"GLOBAL_GORE",
 		},
 	},
+	--[[{
+		name = "Tester TYPE",
+		folder = "test",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xffeeeeee,
+		cape_color_edge = 0xffaaaaaa,
+		items = 
+		{
+			"mods/rando_starting_loadouts/files/test/wands/wand_1.xml",
+			"mods/rando_starting_loadouts/files/test/wands/wand_2.xml",
+		},
+		perks =
+		{
+			"GENOME_RANDOM_ALLIES",
+		},
+	},]]--
 	--[[
 	{
 		name = "Test Mage",
