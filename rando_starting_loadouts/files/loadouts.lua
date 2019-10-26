@@ -114,7 +114,10 @@ loadout_list =
 		},
 		perks =
 		{
-			"INVISIBILITY",
+			{
+			options = { "INVISIBILITY", "REVENGE_TENTACLE" },
+			amount = 1,
+			}
 		},
 	},
 	{
