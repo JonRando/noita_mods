@@ -2,25 +2,24 @@
 
    <AbilityComponent
         _enabled="1" 
-        sprite_file="mods/rando_starting_loadouts/files/wand_gfx/wand_3.xml"
+        sprite_file="mods/rando_starting_loadouts/files/wand_gfx/wand_7.xml"
         swim_propel_amount="0"
         ui_name=""
         drop_as_item_on_death="0"
         cooldown_frames="1"
         entity_count="1"
         reload_time_frames="0"
-        add_these_child_actions="HITFX_EXPLOSION_SLIME_GIGA"
-		mana_charge_speed="20"
-		mana_max="40"
+		mana_charge_speed="25"
+		mana_max="250"
 		use_gun_script="1" 
         >
         <gun_config 
             shuffle_deck_when_empty="0"
-            reload_time="1"
-            deck_capacity="1" >
+            reload_time="5"
+            deck_capacity="3" >
         </gun_config>
         <gunaction_config 
-            fire_rate_wait="1" >
+            fire_rate_wait="5" >
         </gunaction_config>
     </AbilityComponent>
 	
@@ -41,7 +40,7 @@
    <LuaComponent 
         execute_on_added="1"
         remove_after_executed="1"
-        script_source_file="data/scripts/gun/procedural/handgun.lua"
+        script_source_file="mods/rando_starting_loadouts/files/shadow/wands/wand_3_setup.lua"
         >
     </LuaComponent>
 

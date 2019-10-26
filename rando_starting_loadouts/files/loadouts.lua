@@ -1,6 +1,6 @@
 loadout_list =
 {
-	--[[
+	
 	{
 		name = "Summoner TYPE",
 		folder = "summoner",
@@ -96,7 +96,7 @@ loadout_list =
 		{
 			"PROTECTION_MELEE",
 		},
-	},]]--
+	},
 	{
 		name = "Shadow TYPE",
 		folder = "shadow",
@@ -114,7 +114,7 @@ loadout_list =
 			"INVISIBILITY",
 		},
 	},
-	--[[{
+	{
 		name = "Aqua TYPE",
 		folder = "aqua",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
@@ -124,7 +124,10 @@ loadout_list =
 		{
 			"mods/rando_starting_loadouts/files/aqua/wands/wand_1.xml",
 			"mods/rando_starting_loadouts/files/aqua/wands/wand_2.xml",
+			{
 			"data/entities/items/pickup/potion_water.xml",
+			amount = 2,
+			},
 		},
 		perks =
 		{
@@ -141,13 +144,17 @@ loadout_list =
 		{
 			"mods/rando_starting_loadouts/files/blood/wands/wand_1.xml",
 			"mods/rando_starting_loadouts/files/blood/wands/wand_2.xml",
+			{
 			"mods/rando_starting_loadouts/files/blood/potion_blood.xml",
+			amount = 2,
+			},
+			
 		},
 		perks =
 		{
 			"GLOBAL_GORE",
 		},
-	},]]--
+	},
 	--[[
 	{
 		name = "Sludge warlock",
