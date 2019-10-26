@@ -12,3 +12,6 @@ Blood (transmute)
 New or unlocked spells:
 Sea of Blood
 Blood Trail
+Charm
+Charm Field
+Berserk
