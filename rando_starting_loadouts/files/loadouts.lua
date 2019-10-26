@@ -163,6 +163,9 @@ loadout_list =
 	},
 	--[[
 	{
+		name = "Test Mage",
+	},
+	{
 		name = "Sludge warlock",
 	},
 	{
