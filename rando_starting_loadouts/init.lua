@@ -1,5 +1,6 @@
+ModLuaFileAppend( "data/scripts/perks/perk_list.lua", "files/perks_rando.lua" )
+ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.lua" )
 dofile( "data/scripts/perks/perk.lua" )
-ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.lua")
 dofile( "mods/rando_starting_loadouts/files/loadouts.lua" )
 
 -- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
