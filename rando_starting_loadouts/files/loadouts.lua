@@ -159,10 +159,11 @@ loadout_list =
 		perks =
 		{
 			"GLOBAL_GORE",
+			"PROTECTION_RADIOACTIVITY",
 		},
 	},
-	--[[{
-		name = "Tester TYPE",
+	{
+		name = "Tester TYPE",	-- Leave this type as the last one in the list to exclude it from the loadout lottery (crappy hack)
 		folder = "test",
 		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
 		cape_color = 0xffeeeeee,
@@ -174,9 +175,9 @@ loadout_list =
 		},
 		perks =
 		{
-			"GENOME_RANDOM_ALLIES",
+			"FREEZE_FIELD",
 		},
-	},]]--
+	},
 	--[[
 	{
 		name = "Test Mage",
