@@ -94,7 +94,10 @@ loadout_list =
 		},
 		perks =
 		{
-			"PROTECTION_MELEE",
+			{
+			options = { "EDIT_WANDS_EVERYWHERE", "PROTECTION_MELEE" },
+			amount = 1,
+			}
 		},
 	},
 	{
@@ -111,7 +114,10 @@ loadout_list =
 		},
 		perks =
 		{
-			"INVISIBILITY",
+			{
+			options = { "INVISIBILITY", "REVENGE_TENTACLE" },
+			amount = 1,
+			}
 		},
 	},
 	{
@@ -153,9 +159,29 @@ loadout_list =
 		perks =
 		{
 			"GLOBAL_GORE",
+			"PROTECTION_RADIOACTIVITY",
+		},
+	},
+	{
+		name = "Tester TYPE",	-- Leave this type as the last one in the list to exclude it from the loadout lottery (crappy hack)
+		folder = "test",
+		-- NOTE: Usually the game uses ARGB format for colours, but the cape colour uses ABGR here instead
+		cape_color = 0xffeeeeee,
+		cape_color_edge = 0xffaaaaaa,
+		items = 
+		{
+			"mods/rando_starting_loadouts/files/test/wands/wand_1.xml",
+			"mods/rando_starting_loadouts/files/test/wands/wand_2.xml",
+		},
+		perks =
+		{
+			"FREEZE_FIELD",
 		},
 	},
 	--[[
+	{
+		name = "Test Mage",
+	},
 	{
 		name = "Sludge warlock",
 	},

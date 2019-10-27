@@ -1,6 +1,9 @@
+ModLuaFileAppend( "data/scripts/perks/perk_list.lua", "files/perks_rando.lua" )
+ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.lua" )
 dofile( "data/scripts/perks/perk.lua" )
-ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.lua")
 dofile( "mods/rando_starting_loadouts/files/loadouts.lua" )
+
+local forceLoadout = "Tester TYPE"
 
 -- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
 -- For example for 'player.png' the corresponding UV source file is called 'player_uv_src.png'
@@ -37,8 +40,18 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 	local x,y = EntityGetTransform( player_entity )
 	SetRandomSeed( x + 344, y - 523 )
 	
-	local loadout_rnd = Random( 1, #loadout_list )
-	local loadout_choice = loadout_list[loadout_rnd]
+	local loadout_choice = loadout_list[1]
+	if ( forceLoadout ~= "" ) then
+		for i=1,#loadout_list do
+			if ( loadout_list[i].name == forceLoadout ) then
+				loadout_choice = loadout_list[i]
+				break
+			end
+		end
+	else	
+		local loadout_rnd = Random( 1, #loadout_list-1 ) -- excludes the last loadout which should be the test loadout
+		loadout_choice = loadout_list[loadout_rnd]
+	end
 	
 	local loadout_name = loadout_choice.name
 	
@@ -136,14 +149,40 @@ function OnPlayerSpawned( player_entity ) -- this runs when player entity has be
 		end
 	end
 	
-	-- spawn two perks
-	if ( loadout_choice.perks ~= nil ) then
-		for i,perk_name in ipairs( loadout_choice.perks ) do
-			local perk_entity = perk_spawn( x, y, perk_name )
-			if ( perk_entity ~= nil ) then
-				perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
-			end
-		end	
+	-- spawn perks
+	print("Loading perks...")
+	local loadout_perks = loadout_choice.perks
+	if ( loadout_perks ~= nil ) then
+		for perk_id,loadout_perk in ipairs( loadout_perks ) do
+			if ( tostring( type( loadout_perk ) ) ~= "table" ) then
+				local perk_entity = perk_spawn( x, y, loadout_perk )
+				if ( perk_entity ~= nil ) then
+					perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
+				end
+			else
+				print("Choosing a perk..")
+				local perk_amount = loadout_perk.amount or 1
+				
+				for i=1,perk_amount do
+					local perk_option = ""
+					
+					if ( loadout_perk.options ~= nil ) then
+						local perk_options = loadout_perk.options
+						local perk_options_rnd = Random( 1, #perk_options )
+						
+						perk_option = perk_options[perk_options_rnd]
+					else
+						perk_option = loadout_perk[1]
+					end
+					local perk_entity = perk_spawn( x, y, perk_option )
+					if ( perk_entity ~= nil ) then
+						perk_pickup( perk_entity, player_entity, EntityGetName( perk_entity ), false, false )
+						print( "You picked up a " .. perk_option .. "!")
+					end
+				end
+			end	
+			
+		end
 	end
 	
 	GamePrintImportant( "You're a " .. loadout_name .. "!", "" )

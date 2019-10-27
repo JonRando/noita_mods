@@ -21,17 +21,17 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
-wand.name = {"shadow_wand"}
-wand.deck_capacity = {3,3}
+wand.name = {"test_wand"}
+wand.deck_capacity = {1,2}
 wand.actions_per_round = 1
-wand.reload_time = {10,15}
-wand.shuffle_deck_when_empty = 0
-wand.fire_rate_wait = {10,20}
-wand.spread_degrees = 0
+wand.reload_time = {70,100}
+wand.shuffle_deck_when_empty = 1
+wand.fire_rate_wait = {50,90}
+wand.spread_degrees = {3,9}
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {20,25}
-wand.mana_max = {225,275}
-wand.modifiers = { "NECROMANCY", "CHARM", "BERSERK" }
+wand.mana_charge_speed = {25,35}
+wand.mana_max = {120,140}
+wand.actions = { "LIGHTNING", "THUNDERBALL" }
 
 local mana_max = get_random_between_range( wand.mana_max )
 local deck_capacity = get_random_between_range( wand.deck_capacity )
@@ -45,17 +45,19 @@ ComponentSetValue( ability_comp, "mana_charge_speed", get_random_between_range( 
 ComponentObjectSetValue( ability_comp, "gun_config", "actions_per_round", wand.actions_per_round )
 ComponentObjectSetValue( ability_comp, "gun_config", "deck_capacity", deck_capacity )
 ComponentObjectSetValue( ability_comp, "gun_config", "shuffle_deck_when_empty", wand.shuffle_deck_when_empty )
-ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", wand.spread_degrees )
+ComponentObjectSetValue( ability_comp, "gunaction_config", "spread_degrees", get_random_between_range( wand.spread_degrees ) )
 ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", wand.speed_multiplier )
 
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-local wand_modifier = get_random_from( wand.modifiers )
-AddGunAction( entity_id, wand_modifier )
-
-if ( wand_modifier == "NECROMANCY" ) then
-	AddGunAction( entity_id, "AIR_BULLET" )
-else
-	AddGunAction( entity_id, "LIGHT_BULLET" )
+if ( deck_capacity == 2 ) then
+	if ( Random( 1, 10 ) > 2 ) then
+		AddGunAction( entity_id, "ELECTRIC_CHARGE" )
+	else
+		AddGunAction( entity_id, "TORCH_ELECTRIC" )
+	end
 end
+
+local wand_action = get_random_from( wand.actions )
+AddGunAction( entity_id, wand_action )

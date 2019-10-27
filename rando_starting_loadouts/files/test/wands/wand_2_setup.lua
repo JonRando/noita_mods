@@ -21,17 +21,18 @@ SetRandomSeed( x, y )
 local ability_comp = EntityGetFirstComponent( entity_id, "AbilityComponent" )
 
 local wand = { }
-wand.name = {"shadow_wand"}
-wand.deck_capacity = {3,3}
+wand.name = {"test_wand"}
+wand.deck_capacity = {3,4}
 wand.actions_per_round = 1
-wand.reload_time = {10,15}
+wand.reload_time = {30,50}
 wand.shuffle_deck_when_empty = 0
-wand.fire_rate_wait = {10,20}
+wand.fire_rate_wait = {10,45}
 wand.spread_degrees = 0
 wand.speed_multiplier = 1
-wand.mana_charge_speed = {20,25}
-wand.mana_max = {225,275}
-wand.modifiers = { "NECROMANCY", "CHARM", "BERSERK" }
+wand.mana_charge_speed = {10,30}
+wand.mana_max = {140,170}
+wand.actions = { "SPITTER_TIMER", "SLOW_BULLET_TIMER", "LIGHT_BULLET_TIMER" }
+wand.effects = {"ELECTROCUTION_FIELD","THUNDER_BLAST","PROJECTILE_THUNDER_FIELD"}
 
 local mana_max = get_random_between_range( wand.mana_max )
 local deck_capacity = get_random_between_range( wand.deck_capacity )
@@ -51,11 +52,8 @@ ComponentObjectSetValue( ability_comp, "gunaction_config", "speed_multiplier", w
 ComponentSetValue( ability_comp, "mana_max", mana_max )
 ComponentSetValue( ability_comp, "mana", mana_max )
 
-local wand_modifier = get_random_from( wand.modifiers )
-AddGunAction( entity_id, wand_modifier )
+local wand_action = get_random_from( wand.actions )
+AddGunAction( entity_id, wand_action )
 
-if ( wand_modifier == "NECROMANCY" ) then
-	AddGunAction( entity_id, "AIR_BULLET" )
-else
-	AddGunAction( entity_id, "LIGHT_BULLET" )
-end
+local wand_effect = get_random_from( wand.effects )
+AddGunAction( entity_id, wand_effect )
