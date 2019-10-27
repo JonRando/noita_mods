@@ -3,7 +3,7 @@ ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "files/gun_actions_rando.l
 dofile( "data/scripts/perks/perk.lua" )
 dofile( "mods/rando_starting_loadouts/files/loadouts.lua" )
 
-local forceLoadout = "Tester TYPE"
+local forceLoadout = ""
 
 -- Stainable sprites should have a corresponding SPRITE_NAME_uv_src.png next to the sprite file, and the folder containing the sprite should be passed to ModDevGenerateSpriteUVsForDirectory().
 -- For example for 'player.png' the corresponding UV source file is called 'player_uv_src.png'
